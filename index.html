@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An interactive learning lab for White Box and Black Box Software Testing.">
+  <title>Testing Lab | White Box & Black Box</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">TL</span><span>TESTING<span class="accent">LAB</span><small>SOFTWARE ENGINEERING</small></span></a>
+    <nav><a href="#overview">Overview</a><a href="#white-lab">White Box</a><a href="#black-lab">Black Box</a><a href="#quiz">Quiz</a></nav>
+    <span class="status"><i></i> LEARNING MODE</span>
+  </header>
+
+  <main>
+    <section class="hero" id="overview">
+      <div class="eyebrow"><span class="pulse"></span> INTERACTIVE SOFTWARE TESTING PLAYGROUND</div>
+      <h1>See how software<br><span class="gradient-text">gets tested.</span></h1>
+      <p class="hero-copy">Explore the two essential testing approaches. Inspect the logic inside a program, then test a system from the outside using inputs and expected results.</p>
+      <div class="hero-actions"><a class="btn primary" href="#white-lab">Start experimenting <span>↘</span></a><a class="btn secondary" href="#comparison">Compare methods</a></div>
+      <div class="hero-stats">
+        <div><strong>02</strong><span>Testing approaches</span></div>
+        <div><strong>LIVE</strong><span>Interactive examples</span></div>
+        <div><strong>100%</strong><span>Browser-based demo</span></div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="core"><span>QA</span><small>TEST ENGINE</small></div>
+        <div class="float-card card-code"><b>&lt;/&gt;</b><span>CODE PATH</span><i>●●●</i></div>
+        <div class="float-card card-check"><b>✓</b><span>TEST PASSED</span></div>
+        <div class="float-card card-branch"><b>◇</b><span>BRANCH COVERAGE</span></div>
+      </div>
+    </section>
+
+    <section class="section intro-grid">
+      <div><div class="eyebrow">THE BIG IDEA</div><h2>Two ways to look<br>at the same software.</h2></div>
+      <p class="section-lead">White Box Testing examines the internal code and decision paths. Black Box Testing checks whether the software behaves correctly—without needing to know how it is built.</p>
+    </section>
+
+    <section class="lab-section" id="white-lab">
+      <div class="section-heading">
+        <div><div class="eyebrow green">LAB 01 · STRUCTURAL TESTING</div><h2>White Box <span class="green-text">Testing</span></h2><p>Inspect the logic. Change the input. Watch which branch executes.</p></div>
+        <span class="tag green-tag">INTERNAL VIEW</span>
+      </div>
+      <div class="lab-card">
+        <div class="lab-card-head"><div><span class="window-dots">● ● ●</span><b>voting_eligibility.py</b></div><span class="file-type">PYTHON · EXAMPLE</span></div>
+        <div class="white-grid">
+          <div class="code-panel">
+            <div class="panel-label">SOURCE CODE <span>● LIVE TRACE</span></div>
+            <pre class="code" aria-label="Example Python code"><code><span class="line" data-line="1"><em>01</em> age = <b id="code-age">20</b></span>
+<span class="line" data-line="2"><em>02</em> </span>
+<span class="line" data-line="3" id="line-condition"><em>03</em> <i>if</i> age &gt;= 18:</span>
+<span class="line" data-line="4" id="line-true"><em>04</em>     print(<u>"Eligible to vote"</u>)</span>
+<span class="line" data-line="5" id="line-else"><em>05</em> <i>else</i>:</span>
+<span class="line" data-line="6" id="line-false"><em>06</em>     print(<u>"Not eligible"</u>)</span></code></pre>
+            <div class="code-note"><span class="note-icon">i</span>This is illustrative Python source. The browser runs an equivalent JavaScript demonstration and highlights the path taken.</div>
+          </div>
+          <div class="control-panel">
+            <div class="panel-label">TEST INPUT <span>CHANGE VALUE</span></div>
+            <label for="age-input">Person's age</label>
+            <div class="age-readout"><strong id="age-value">20</strong><span>years old</span></div>
+            <input id="age-input" type="range" min="0" max="100" value="20">
+            <div class="range-labels"><span>0 years</span><span>100 years</span></div>
+            <button class="btn primary full" id="run-white">Run white box test <span>▶</span></button>
+            <div class="result-box" id="white-result" aria-live="polite"><span class="result-kicker">PROGRAM OUTPUT</span><strong>Eligible to vote</strong><small>TRUE branch executed</small></div>
+          </div>
+        </div>
+        <div class="trace-footer">
+          <div><span class="panel-label">EXECUTION TRACE</span><p id="trace-text">Condition age &gt;= 18 evaluated as TRUE. The if-branch ran.</p></div>
+          <div class="coverage"><span class="panel-label">BRANCH COVERAGE</span><strong id="coverage-value">50%</strong><div class="progress"><span id="coverage-bar" style="width:50%"></span></div><small id="coverage-note">1 of 2 branches visited in this session</small></div>
+        </div>
+      </div>
+      <div class="concept-row">
+        <div class="concept"><span class="concept-icon green-icon">01</span><div><b>Statement / path inspection</b><p>Observe which statements and decision paths execute.</p></div></div>
+        <div class="concept"><span class="concept-icon green-icon">02</span><div><b>Branch coverage</b><p>Try both TRUE and FALSE outcomes of the condition.</p></div></div>
+        <div class="concept"><span class="concept-icon green-icon">03</span><div><b>Boundary value</b><p>Test 17, 18 and 19 around the voting-age boundary.</p></div></div>
+      </div>
+    </section>
+
+    <section class="lab-section" id="black-lab">
+      <div class="section-heading">
+        <div><div class="eyebrow blue">LAB 02 · FUNCTIONAL TESTING</div><h2>Black Box <span class="blue-text">Testing</span></h2><p>Don't inspect the implementation. Supply inputs and verify the observable result.</p></div>
+        <span class="tag blue-tag">EXTERNAL VIEW</span>
+      </div>
+      <div class="lab-card">
+        <div class="lab-card-head"><div><span class="window-dots">● ● ●</span><b>login-system.demo</b></div><span class="file-type">FUNCTIONAL TEST</span></div>
+        <div class="black-grid">
+          <div class="login-preview">
+            <div class="mini-brand"><span class="brand-mark">N</span><span>NEXUS<span class="blue-text">PORTAL</span></span></div>
+            <div class="login-title"><span class="lock-icon">⌑</span><h3>Welcome back</h3><p>Sign in to continue to your workspace.</p></div>
+            <form id="login-form">
+              <label for="login-user">Username</label><input id="login-user" autocomplete="off" placeholder="Enter username" value="admin">
+              <label for="login-pass">Password</label><input id="login-pass" type="password" autocomplete="off" placeholder="Enter password" value="1234">
+              <button class="btn blue-button full" type="submit">Sign in <span>→</span></button>
+            </form>
+            <div class="demo-hint">DEMO CREDENTIALS <b>admin / 1234</b></div>
+            <div id="login-feedback" class="login-feedback" aria-live="polite">Ready for a test. Submit any input combination.</div>
+          </div>
+          <div class="test-panel">
+            <div class="panel-label">TEST CASE RUNNER <span>PREDEFINED CASES</span></div>
+            <p class="muted small">Run test cases to compare expected and actual behaviour. These test the visible login contract, not its source code.</p>
+            <div class="test-actions"><button class="btn secondary small-btn" id="run-suite">▶ Run all test cases</button><button class="text-btn" id="clear-suite">Clear results</button></div>
+            <div class="test-table-wrap"><table><thead><tr><th>TEST CASE</th><th>INPUT</th><th>EXPECTED</th><th>RESULT</th></tr></thead><tbody id="test-results"><tr class="empty-row"><td colspan="4">No test cases run yet.</td></tr></tbody></table></div>
+            <div class="suite-summary" id="suite-summary"><span>SUITE SUMMARY</span><strong>Waiting for execution</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="concept-row">
+        <div class="concept"><span class="concept-icon blue-icon">01</span><div><b>Input validation</b><p>Check valid, invalid and empty credentials.</p></div></div>
+        <div class="concept"><span class="concept-icon blue-icon">02</span><div><b>Expected vs actual</b><p>Compare the system's response with the requirement.</p></div></div>
+        <div class="concept"><span class="concept-icon blue-icon">03</span><div><b>Boundary / negative tests</b><p>Try blank fields and incorrect values.</p></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="comparison">
+      <div class="eyebrow">QUICK REFERENCE</div><h2>White Box vs Black Box</h2>
+      <div class="comparison-table"><div class="compare-head"><span>COMPARISON</span><span class="green-text">WHITE BOX</span><span class="blue-text">BLACK BOX</span></div>
+        <div><b>What is tested?</b><span>Internal code, logic and paths</span><span>External features and behaviour</span></div>
+        <div><b>Source code needed?</b><span>Yes, generally</span><span>No</span></div>
+        <div><b>Main focus</b><span>How it works</span><span>What it does</span></div>
+        <div><b>Example here</b><span>Voting condition and branches</span><span>Login inputs and responses</span></div>
+        <div><b>Typical techniques</b><span>Statement, branch, path coverage</span><span>Equivalence partitioning, boundary values</span></div>
+      </div>
+      <p class="footnote">Note: These approaches are complementary. A complete test strategy often uses both.</p>
+    </section>
+
+    <section class="quiz-section" id="quiz">
+      <div class="quiz-copy"><div class="eyebrow purple">CHECK YOUR UNDERSTANDING</div><h2>Test your testing<br><span class="gradient-text">knowledge.</span></h2><p>Answer these quick questions to see what you've learned.</p><div class="quiz-score" id="quiz-score">YOUR SCORE <strong>— / 3</strong></div></div>
+      <div class="quiz-card">
+        <div class="quiz-progress"><span id="quiz-progress" style="width:33%"></span></div>
+        <div class="quiz-meta"><span id="quiz-number">QUESTION 01 / 03</span><span>KNOWLEDGE CHECK</span></div>
+        <h3 id="quiz-question">Which testing method requires knowledge of the source code?</h3>
+        <div class="quiz-options" id="quiz-options"></div>
+        <div class="quiz-feedback" id="quiz-feedback" aria-live="polite"></div>
+        <button class="btn primary full" id="quiz-next" disabled>Next question →</button>
+      </div>
+    </section>
+  </main>
+  <footer><a class="brand" href="#"><span class="brand-mark">TL</span><span>TESTING<span class="accent">LAB</span></span></a><p>Built for learning Software Engineering · Interactive demonstration</p><a href="#overview">Back to top ↑</a></footer>
+  <script src="white-box/whitebox.js"></script>
+  <script src="black-box/blackbox.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
